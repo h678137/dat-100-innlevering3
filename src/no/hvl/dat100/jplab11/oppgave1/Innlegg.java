@@ -2,21 +2,19 @@ package no.hvl.dat100.jplab11.oppgave1;
 
 import no.hvl.dat100.jplab11.common.TODO;
 
-
-
 public abstract class Innlegg {
-	
+
 	// TODO - deklarering av objektvariable
 	private int id;
 	private String bruker;
 	private String dato;
 //	private Innlegg innlegg;
 	private int likes;
-	
+
 	public Innlegg() {
-		
+
 	}
-	
+
 	public Innlegg(int id, String bruker, String dato) {
 
 		this.id = id;
@@ -24,7 +22,7 @@ public abstract class Innlegg {
 		this.dato = dato;
 		this.likes = 0;
 //		this.innlegg = new Innlegg;
-		
+
 	}
 
 	public Innlegg(int id, String bruker, String dato, int likes) {
@@ -33,16 +31,16 @@ public abstract class Innlegg {
 		this.bruker = bruker;
 		this.dato = dato;
 		this.likes = likes;
-		}
-	
+	}
+
 	public String getBruker() {
-		
+
 		return this.bruker;
 
 	}
 
 	public void setBruker(String bruker) {
-	this.bruker = bruker;
+		this.bruker = bruker;
 	}
 
 	public String getDato() {
@@ -50,10 +48,9 @@ public abstract class Innlegg {
 	}
 
 	public void setDato(String dato) {
-		
+
 		this.dato = dato;
 	}
-	
 
 	public int getId() {
 
@@ -63,27 +60,26 @@ public abstract class Innlegg {
 	public int getLikes() {
 		return this.likes;
 	}
-	
-	public void doLike () {
+
+	public void doLike() {
 		this.likes++;
 	}
-	
+
 	public boolean erLik(Innlegg innlegg) {
 
-		return this.id==innlegg.getId();
+		return this.id == innlegg.getId();
 	}
-	
+
 	@Override
 	public String toString() {
-		
 
-		return "Id: "+id+", Bruker: "+bruker+", Dato: "+dato+"\n Antall likes: "+likes+"\n";
+		return id + "\n" + bruker + "\n" + dato + "\n" + likes + "\n";
 	}
-	
+
 	// Metoden nedenfor er kun for valgfri oppgave 6
 	public String toHTML() {
-		
+
 		throw new UnsupportedOperationException(TODO.method());
-				
+
 	}
 }
