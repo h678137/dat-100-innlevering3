@@ -83,9 +83,13 @@ public class Blogg {
 	}
 	
 	public String toString() {
-		throw new UnsupportedOperationException(TODO.method());
-		//usikker hva som må gjøres her. lurer på om dette holder.
-		//	return 	nesteledig + "\n"+ innleggstabell.toString();
+		
+		String ts = "";
+		ts +=nesteledig + "\n";
+		for (int i=0; i<nesteledig; i++) {
+			ts+=innleggstabell[i].toString();
+		}
+		return ts;
 	}
 
 	// valgfrie oppgaver nedenfor
