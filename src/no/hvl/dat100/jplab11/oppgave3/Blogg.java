@@ -28,6 +28,7 @@ public class Blogg {
 	}
 
 	public int finnInnlegg(Innlegg innlegg) {
+		
 		boolean funnet = false;
 		int pos = -1;
 		int i = 0;
@@ -47,29 +48,38 @@ public class Blogg {
 	}
 
 	public boolean finnes(Innlegg innlegg) {
+		
 		boolean finnes = false;
-		int i = 0;
-		while (i < nesteledig && !finnes) {
+		
+		for (int i=0; i<nesteledig; i++) {
 			if (innleggstabell[i].erLik(innlegg)) {
 				finnes = true;
-				i++;
+				break;
 			}
 		}return finnes;
 	}
+	
 	public boolean ledigPlass() {
-		return nesteledig < innleggstabell.length;
+//		return nesteledig < innleggstabell.length;
+		if(nesteledig<innleggstabell.length) {
+			return true;
+		}else {
+			return false;
+		}
+		
 	}
 
 	public boolean leggTil(Innlegg innlegg) {
-		if (!ledigPlass()) {
+
+		if(nesteledig>=innleggstabell.length) {
 			return false;
-		} else if (finnes(innlegg)) {
+		}else if (finnes(innlegg)){
 			return false;
-		}else
-		
-		innleggstabell[nesteledig] = innlegg;
-		nesteledig++;
-		return true;
+		}else {
+			innleggstabell[nesteledig]=innlegg;
+			nesteledig++;
+			return true;
+		}
 	}
 	
 	public String toString() {
