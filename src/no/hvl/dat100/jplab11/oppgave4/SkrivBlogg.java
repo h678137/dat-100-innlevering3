@@ -9,25 +9,30 @@ import no.hvl.dat100.jplab11.oppgave3.*;
 public class SkrivBlogg {
 
 	public static boolean skriv(Blogg samling, String mappe, String filnavn) {
+		boolean harskrevet = true;
+		// skal retunere true hvis det blir skrevet til fil
+		// Håndtere untak (try catch)
+		PrintWriter skriver = null;
+		String fil = mappe + filnavn;
+		String melding = "Teksten er lagret i fil";
 
-		//skal retunere true hvis det blir skrevet til fil
-		//Håndtere untak (try catch)
-		
-	String fil = mappe+filnavn;
-	try {
-		PrintWriter skriver = new PrintWriter(fil);
-		
-//		for(int i =0; i<samling.getAntall();i++) {
+		try {
+			skriver = new PrintWriter(fil);
 			skriver.println(samling.toString());
-//		}
-		skriver.close();
-		return true;
-	} catch (FileNotFoundException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-		return false;
-	}
-	
 
+//		}
+			skriver.close();
+			return true;
+		} catch (FileNotFoundException e) {
+			melding = "Fikk ikke skrevet til fil";
+			e.printStackTrace();
+			harskrevet = false;
+		} finally {
+			if (skriver != null) {
+				skriver.close();
+				System.out.println(melding);
+			}
+		}
+		return harskrevet;
 	}
 }

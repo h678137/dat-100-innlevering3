@@ -77,7 +77,7 @@ public class Blogg {
 	
 	public String toString() {
 		//usikker hva som må gjøres her. lurer på om dette holder.
-		return 	nesteledig + "\n"+ innleggstabell.toString();
+			return 	nesteledig + "\n"+ innleggstabell.toString();
 	}
 
 	// valgfrie oppgaver nedenfor
