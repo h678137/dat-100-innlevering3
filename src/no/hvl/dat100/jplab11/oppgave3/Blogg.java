@@ -54,11 +54,8 @@ public class Blogg {
 				finnes = true;
 				i++;
 			}
-
-		}
-		return finnes;
+		}return finnes;
 	}
-
 	public boolean ledigPlass() {
 		return nesteledig < innleggstabell.length;
 	}
@@ -68,7 +65,7 @@ public class Blogg {
 			return false;
 		} else if (finnes(innlegg)) {
 			return false;
-		}
+		}else
 		
 		innleggstabell[nesteledig] = innlegg;
 		nesteledig++;
@@ -76,8 +73,9 @@ public class Blogg {
 	}
 	
 	public String toString() {
+		throw new UnsupportedOperationException(TODO.method());
 		//usikker hva som må gjøres her. lurer på om dette holder.
-			return 	nesteledig + "\n"+ innleggstabell.toString();
+		//	return 	nesteledig + "\n"+ innleggstabell.toString();
 	}
 
 	// valgfrie oppgaver nedenfor

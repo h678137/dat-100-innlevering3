@@ -27,7 +27,7 @@ public class Bilde extends Tekst {
 
 	@Override
 	public String toString() {
-		return super.toString()+ "net bilde\n" + url+"\n";
+		return super.toString().replace("TEKST", "BILDE") + url+"\n";
 	}
 
 	// Metoden nedenfor er kun for valgfri oppgave 6
